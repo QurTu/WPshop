@@ -57,7 +57,7 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
                     <a class="mini-cart-item-image" href="<?php echo esc_url( $product_permalink ); ?>">
                         <?php echo $thumbnail ; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                     </a>
-                    <div>
+                    <div class="mini-cart-item-info">
                         <a class="mini-cart-item-name" href="<?php echo esc_url( $product_permalink ); ?>">
                             <?php echo $product_name; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                         </a>
@@ -112,30 +112,7 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
         <strong> Pristatymas:</strong>
         <span> <?php echo WC()->cart->get_cart_shipping_total(); ?></span>
     </p>
-    <?php
-    $shippgtotal = preg_replace('/[^0-9\.]/', "", WC()->cart->get_cart_shipping_total());
-    if($shippgtotal == '') {
-        $shippgtotal = 0;
-    }
-    $sumInNumber = preg_replace('/[^0-9\.]/', "", WC()->cart->get_total());
-    $toFreeShipping = 35 + round(floatval($shippgtotal), 2) - round(floatval($sumInNumber),  2  );
-//    if(35 + $shippgtotal > $sumInNumber) {
-//
-//        $toFreeShipping = 35 + round(floatval($shippgtotal), 2) - round(floatval($sumInNumber),  2  ) ;
-//        echo '<p  class="to-free-shipping-cart"> <span class="to-free-shipping-with-under"> Iki nemokamo pristatymo liko:</span>  <span class="to-free-shipping-price-mini-cart"> ' . round($toFreeShipping,2)   .' €  </span> </p>';
-//    }
-    if($shippgtotal == 0) {
 
-    }
-    else {
-        ?>
-        <p class="to-free-shipping-cart mini-cart">
-            <span class="to-free-shipping-with-under">Iki nemokamo pristatymo liko:</span>
-            <span class="to-free-shipping-price-mini-cart"><?php echo round($toFreeShipping,2) . ' €' ?></span>
-        </p>
-        <?php
-    }
-    ?>
     <?php do_action( 'woocommerce_widget_shopping_cart_before_buttons' ); ?>
 
     <p class="woocommerce-mini-cart__buttons buttons"><?php do_action( 'woocommerce_widget_shopping_cart_buttons' ); ?></p>

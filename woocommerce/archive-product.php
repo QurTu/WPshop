@@ -50,6 +50,8 @@ do_action( 'woocommerce_before_main_content' );
 	do_action( 'woocommerce_archive_description' );
 	?>
 </header>
+
+<div class="shop-main-content">
 <?php
 if ( woocommerce_product_loop() ) {
     /**
@@ -66,6 +68,11 @@ if ( woocommerce_product_loop() ) {
 	 * @hooked woocommerce_result_count - 20
 	 * @hooked woocommerce_catalog_ordering - 30
 	 */
+
+	?>
+    <div class="shop-main-content-shop-items">
+
+    <?php
 	do_action( 'woocommerce_before_shop_loop' );
 
 
@@ -107,7 +114,7 @@ if ( woocommerce_product_loop() ) {
  * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
  */
 do_action( 'woocommerce_after_main_content' );
-
-
+echo "</div>";
+echo "</div>";
 echo "</div>";
 get_footer( 'shop' );

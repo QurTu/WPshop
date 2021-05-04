@@ -1,0 +1,7 @@
+.shop-page-container {
+  display: block;
+  .shop-main-content {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+  }
+}

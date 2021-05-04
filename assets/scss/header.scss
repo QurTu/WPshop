@@ -15,28 +15,47 @@ header {
                 height: 50px;
               }
             }
-
           }
           .header-nav-menu {
-
+            display: flex;
+            align-items: center;
+            .header-nav-menu-item-cat {
+              padding-right: 20px;
+              position: relative;
+              a {
+                text-decoration: none;
+              }
+              .header-menu-dropdown {
+                display: none;
+              }
+              &:hover {
+                .header-menu-dropdown {
+                  position: absolute;
+                  display: flex;
+                  flex-direction: column;
+                }
+              }
+            }
           }
           .header-actions-icons {
             display: flex;
+            align-items: center;
             .header-search {
               @import "search";
-
             }
             .header-cart {
+              padding-left: 20px;
               object {
-                width: 20px;
-                height: 20px;
+                width: 30px;
+                height: 30px;
               }
-
             }
             .header-hambureger-menu {
+              cursor: pointer;
+              padding-left: 20px;
               object {
-                width: 20px;
-                height: 20px;
+                width: 30px;
+                height: 30px;
               }
             }
           }

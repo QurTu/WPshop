@@ -52,19 +52,26 @@ jQuery(document).on('click', '.edgtf-quantity-minus, .edgtf-quantity-plus', func
 jQuery( document ).on( 'change', '.widget_shopping_cart_content .edgtf-quantity-buttons input', function() {
     jQuery('.header-cart-loader').addClass('header-cart-loader-active');
     let val = jQuery(this).val();
+    console.log(val);
     let id =jQuery(this).attr('id');
     val = val.replace(/[^\d.-]/g, '');
+    console.log(val);
     if(val == '' || val == 'NaN') {
         val = 1;
+        console.log(1)
     }
     val =  Math.floor(parseInt(val));
     if(val < 1){
         val = 1;
+        console.log(2)
     }
-    if(jQuery(this).data('max') < val) {
+    if(  jQuery(this).data('max') && jQuery(this).data('max') < val) {
         val = jQuery(this).data('max');
+        console.log(3)
     }
     jQuery(this).val(val);
+    console.log(val);
+    console.log(id);
     let ajaxurl = ajax_object.ajax_url;
     jQuery.ajax({
         type : "post",

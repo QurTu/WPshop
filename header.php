@@ -39,7 +39,35 @@
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png"/>
             </a>
         </div>
-        <div class="header-nav-menu">vyrams moterims viakams</div>
+        <div class="header-nav-menu">
+            <?php
+            $navMenu = wp_get_menu_array('header-main-menu');
+            foreach ($navMenu as $item) {
+                ?>
+                <div class="header-nav-menu-item-cat">
+                       <a href="<?php echo $item['url']?>" class="header-nav-menu-top-lvl-item"> <?php echo $item['title']?> </a>
+                        <?php
+                            if($item['children']) {
+                                ?>
+                                <div class="header-menu-dropdown">
+                                    <?php
+                                     foreach ($item['children'] as $subElement) {
+                                         ?>
+                                         <a href="<?php echo $subElement['url']?>" class="header-nav-menu-top-lvl-item"> <?php echo $subElement['title']?> </a>
+                                        <?php
+                                     }
+                                    ?>
+                                </div>
+                                <?php
+                            }
+                        ?>
+                </div>
+                <?php
+            }
+
+            ?>
+
+        </div>
         <div class="header-actions-icons">
             <div class="header-search">
                 <div id="wrap">
@@ -49,7 +77,9 @@
                 </div>
             </div>
             <div class="header-cart">
+                <a href="/cart">
                 <object style="pointer-events: none;" data="<?php echo get_template_directory_uri(); ?>/assets/images/SVG/cart.svg" type="image/svg+xml"></object>
+                </a>
                 <div class="header-drop-down">
                     <div class="widget_shopping_cart_content"><?php woocommerce_mini_cart(); ?></div>
                 </div>
@@ -69,12 +99,30 @@
         <div class="mobile-header-main-content">
             <h1> <?php  _e('meniu', 'parduotuve')?></h1>
             <div class="mobile-header-nav-bar">
-                <a href="">aaaaaaa</a>
-                <a href="">aaaaaaa</a>
-                <a href="">aaaaaaa</a>
-                <a href="">aaaaaaa</a>
-                <a href="">aaaaaaa</a>
-                <a href="">aaaaaaa</a>
+                <?php
+                foreach ($navMenu as $item) {
+                    ?>
+                    <div class="header-nav-menu-item-cat">
+                        <a href="<?php echo $item['url']?>" class="header-nav-menu-top-lvl-item"> <?php echo $item['title']?> </a>
+                        <?php
+                        if($item['children']) {
+                            ?>
+                            <div class="header-menu-dropdown">
+                                <?php
+                                foreach ($item['children'] as $subElement) {
+                                    ?>
+                                    <a href="<?php echo $subElement['url']?>" class="header-nav-menu-top-lvl-item"> <?php echo $subElement['title']?> </a>
+                                    <?php
+                                }
+                                ?>
+                            </div>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                    <?php
+                }
+                ?>
             </div>
         </div>
 
