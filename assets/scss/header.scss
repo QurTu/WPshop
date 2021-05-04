@@ -1,0 +1,46 @@
+header {
+    .header-contact-info {
+      display: flex;
+      justify-content: flex-end;
+      padding: 10px 0;
+      gap: 15px;
+    }
+    .header-nav-menu-container {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+          .header-logo {
+            a {
+              img {
+                height: 50px;
+              }
+            }
+
+          }
+          .header-nav-menu {
+
+          }
+          .header-actions-icons {
+            display: flex;
+            .header-search {
+              @import "search";
+
+            }
+            .header-cart {
+              object {
+                width: 20px;
+                height: 20px;
+              }
+
+            }
+            .header-hambureger-menu {
+              object {
+                width: 20px;
+                height: 20px;
+              }
+            }
+          }
+    }
+}
+
+

@@ -1,0 +1,32 @@
+@import "helpers/mixins";
+.full-width-container {
+  display: inherit;
+  width: 100%;
+}
+.content-container {
+  display: block;
+  width: 1400px;
+  margin: 0 auto;
+}
+
+@include smaller-container{
+  .content-container {
+    width: 1200px;
+    margin: 0 auto;
+  }
+}
+@include before-mobile{
+  .content-container {
+    width: 100%;
+    margin: 0px;
+    padding: 0 50px;
+  }
+}
+@include mobile-container{
+  .content-container {
+    padding: 0 20px;
+  } }
+.shop-page-container {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+}

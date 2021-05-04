@@ -1,0 +1,23 @@
+.homepage-hero-slider {
+  display: block;
+  position: relative;
+  width: 100%;
+    .splide__list {
+      display: flex;
+      .splide__slide {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        .home-hero-slider-content {
+
+        }
+        .home-hero-slider-img {
+           img {
+             height: 100%;
+             width: 100%;
+             object-fit: cover;
+           }
+        }
+      }
+    }
+
+}

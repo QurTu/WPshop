@@ -1,0 +1,19 @@
+@mixin smaller-container() {
+  @media (max-width:1500px) {
+    @content
+  }}
+
+@mixin before-mobile() {
+  @media (max-width:1300px) {
+    @content
+  }}
+
+@mixin mobile-container() {
+  @media (max-width:670px) {
+    @content
+  }}
+
+
+
+
+

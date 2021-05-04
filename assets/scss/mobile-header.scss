@@ -1,0 +1,53 @@
+@import "helpers/mixins";
+.mobile-header-wrap {
+  cursor: pointer;
+  position: fixed;
+  background: rgba(0,0,0,.65);
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999999999;
+  display: none;
+   .mobile-header-container {
+     cursor: auto;
+     position: absolute;
+     right: 0;
+     top: 0;
+     bottom: 0;
+     background-color: #fff;
+     width: 400px;
+      .mobile-header-close {
+        border: none;
+        background-color: transparent;
+        float: right;
+        margin-top: 10px;
+        margin-right: 10px;
+        cursor: pointer;
+        object {
+          width: 30px;
+          height: 30px;
+        }
+      }
+     .mobile-header-main-content {
+       padding: 20px;
+       h1 {
+         display: block;
+         margin-top: 50px;
+         text-align: center;
+         text-transform: uppercase;
+       }
+     }
+   }
+  @include mobile-container{
+    .mobile-header-container{
+      width: 100%;
+    }
+  }
+}
+
+
+
+
+
+
