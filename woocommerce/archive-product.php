@@ -59,7 +59,38 @@ if ( woocommerce_product_loop() ) {
      *
      * @hooked woocommerce_get_sidebar - 10
      */
-    do_action( 'woocommerce_sidebar' );
+ //   do_action( 'woocommerce_sidebar' );
+    $sideBar = wp_get_menu_array('header-main-menu');
+    ?><div class="shop-side-bar">
+    <?php
+        foreach ($sideBar as $item) {
+                ?>
+                <div class="header-nav-menu-item-cat">
+                       <a href="<?php echo $item['url']?>" class="header-nav-menu-top-lvl-item"> <?php echo $item['title']?> </a>
+                        <?php
+                            if($item['children']) {
+                                ?>
+                                <div class="header-menu-dropdown">
+                                    <?php
+                                     foreach ($item['children'] as $subElement) {
+                                         ?>
+                                         <a href="<?php echo $subElement['url']?>" class="header-nav-menu-top-lvl-item"> <?php echo $subElement['title']?> </a>
+                                        <?php
+                                     }
+                                    ?>
+                                </div>
+                                <?php
+                            }
+                        ?>
+                </div>
+                <?php
+            }
+     echo do_shortcode('[wpf-filters id=1]')
+
+    ?>
+
+    </div>
+    <?php
 
 	/**
 	 * Hook: woocommerce_before_shop_loop.
